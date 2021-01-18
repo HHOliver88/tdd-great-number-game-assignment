@@ -9,6 +9,7 @@ Basic routes, views, and controller methods are provided. Make sure you build th
 
 1. Build this app using MySQL to store session values instead of just using req.session.
 2. Create the MySQL table, and necessary columns for this app. Use the hh database.
+3. Focus on testing the ​Models. ​You will learn how to test Controllers, and Routes in the later topics.
 
 
 # Instructions
