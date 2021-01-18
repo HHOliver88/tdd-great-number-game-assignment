@@ -1,0 +1,48 @@
+version: "3.2"
+services:
+    db:
+      image: mysql:5.7
+      volumes:
+        - db_data:/var/lib/mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: hh
+        MYSQL_USER: root
+        MYSQL_PASSWORD: password
+
+      ports:
+        - 3307:3306
+      
+    selenium_chrome:
+      image: selenium/standalone-chrome:4.0.0
+      volumes:
+        - /dev/shm:/dev/shm
+      ports:
+        - "4444:4444"
+
+    app:
+      depends_on:
+        - db
+        - selenium_chrome
+      build: 
+        context: .
+        dockerfile: Dockerfile
+        args:
+          # [Choice] Node.js version: 14, 12, 10
+          VARIANT: 14
+          # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
+          USER_UID: 1000
+          USER_GID: 1000
+      # Overrides default command so things don't shut down after the process ends.
+      command: sleep infinity
+      volumes:
+        - ./:/var/www/app
+      # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+      # network_mode: service:db
+
+      ports:
+        - 3000:3000
+
+volumes:
+    db_data: {}

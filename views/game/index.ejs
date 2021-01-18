@@ -1,0 +1,18 @@
+<h1>Welcome to the Great Number Game!</h1>
+<p>I am thinking of a number between 1 and 100</p>
+<p>Take a guess!</p>
+<form action="/process" method="POST">
+<%  if (DATA.result == "correct") { %>
+        <div class='correct'><%=DATA.guess_num%> was the answer!
+            <a href="/reset">Play Again!</a>
+        </div>
+<%  } else { 
+        if(DATA.result == "lower") { %>
+            <div>Too Low!</div>
+<%      } else if(DATA.result == "higher") { %>
+            <div>Too High!</div>
+<%      } %>
+        <input type="text" name="guess_num"/>
+        <input type="submit" value="Submit"/>
+<%  } %>
+</form>

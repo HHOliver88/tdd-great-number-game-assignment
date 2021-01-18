@@ -1,0 +1,39 @@
+body {
+    text-align:center;
+}
+input[type="submit"] {
+    display:block;
+    margin: 10px auto;
+}
+div {
+    background-color:red;
+    width: 200px;
+    height:120px;
+    color:white;
+    font-size: 30px;
+    padding-top: 50px;
+    margin: 10px auto;
+}
+    div.correct {
+        background-color:green;
+        padding-top: 30px;
+    }
+input[type="button"] {
+    display:block;
+    margin: 20px auto;
+}
+a {
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(236, 235, 235);
+    padding: 5px;
+    display: block;
+    font-size: 12px;
+    border-radius: 10%;
+    width:70px;
+    margin: 10px auto;
+}
+a:hover {
+    background-color: white;
+}
