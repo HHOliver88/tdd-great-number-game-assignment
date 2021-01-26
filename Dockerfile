@@ -7,10 +7,12 @@ WORKDIR /var/www/app
 
 COPY package.json .
 
+# happens in container
+RUN npm install -g nodemon
+
+#happens in container
 RUN npm install
 
 COPY . .
 
 EXPOSE 3000
-
-CMD ["npm", "start"]
