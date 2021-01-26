@@ -13,18 +13,9 @@ services:
 
       ports:
         - 3307:3306
-      
-    selenium_chrome:
-      image: selenium/standalone-chrome:4.0.0
-      volumes:
-        - /dev/shm:/dev/shm
-      ports:
-        - "4444:4444"
-
     app:
       depends_on:
         - db
-        - selenium_chrome
       build: ./
       command: npm start
       volumes:
