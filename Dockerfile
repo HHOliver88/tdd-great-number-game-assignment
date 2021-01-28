@@ -5,14 +5,7 @@ RUN mkdir -p /var/www/app
 
 WORKDIR /var/www/app
 
-COPY package.json .
+COPY . .
 
 # happens in container
 RUN npm install -g nodemon
-
-#happens in container
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
